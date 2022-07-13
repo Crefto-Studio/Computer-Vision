@@ -166,17 +166,19 @@ function openCvReady() {
           if(contours.size() > 0)
           {
               // getting the contour of max area
-                  let area = 0;
-                  let max= 0;
-                  let cnt = 0;
+              let area = 0;
+              let max= 0;
+              let cnt = 0;
+              let current_cnt=0;
               for(var i=0;i<contours.size();i++)
               {
-                  cnt = contours.get(i);
-                  area = cv.contourArea(cnt, false);
-                  if(area >max)
-                  {
-                      max = area;
-                  }
+                    current_cnt = contours.get(i);
+                    area = cv.contourArea(current_cnt, false);
+                    if(area >max)
+                    {
+                        max = area;
+                        cnt = current_cnt;
+                    }
               }
   
               let M = cv.moments(cnt, false);
