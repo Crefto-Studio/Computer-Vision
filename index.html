@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Painter Js</title>
+</head>
+<div>
+    <input type="range" id="lower_hue" value ="57" min="0" max ="180">
+    <input type="range" id="lower_sat" value ="67" min="0" max ="255">
+    <input type="range" id="lower_val" value ="0" min="0" max ="255">
+    <input type="range" id="upper_hue" value ="100" min="0" max ="180">
+    <input type="range" id="upper_sat" value ="255" min="0" max ="255">
+    <input type="range" id="upper_val" value ="255" min="0" max ="255">
+</div>
+<div id="Modes">
+</div>
+<p id="output"></p>
+
+<body>
+    <video id="cam_input" height="480" width="640"></video>
+    <canvas id="canvas_output"></canvas>
+    <canvas id="canvas_output2"></canvas>
+    <canvas id="canvas_output3"></canvas>
+</body>
+<script async src="js/opencv.js" onload="openCvReady();"></script>
+<script src="js/painter.js"></script>
+</html>

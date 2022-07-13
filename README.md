@@ -1,5 +1,6 @@
-# Computer-Vision
+# virtual-painter-js
 
-## virtual-painter-js
-run server ex: 
-$ python -m http.server 8000
+
+run python server : 
+
+$ python -m http.server 8001
