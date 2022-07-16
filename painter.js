@@ -16,7 +16,7 @@ function openCvReady() {
       document.querySelector("#save_btn2").style.display="none";
       document.querySelector("#virtual").style.display="none";
       document.querySelector("#share").style.display="none";
-
+      document.querySelector(".btn-render").style.display="none";
       document.getElementById("model-canvas").style.display="none";
 
       document.querySelector("#Exit_Button").style.display="block"; 
@@ -129,7 +129,7 @@ function openCvReady() {
       let src = new cv.Mat(video.height, video.width, cv.CV_8UC4);
       let hsv = new cv.Mat(video.height, video.width, cv.CV_8UC1);
       let mask = new cv.Mat(video.height, video.width, cv.CV_8UC1);
-      let paint_window = new cv.Mat(video.height, video.width, cv.CV_8UC4, [255,255,255,255]);
+      let paint_window = new cv.Mat(video.height, video.width, cv.CV_8UC4, [117,158,223,255]);
       let points = [];
       let line_points =[];
       let circle_points =[];
@@ -284,8 +284,8 @@ function openCvReady() {
                         delay_permission = true;
                         Draw_event= false;
                         toggle =false;
-                        // paint_window.delete();
-                        // paint_window = new cv.Mat(video.height, video.width, cv.CV_8UC4, [255,255,255,255]);
+                        paint_window.delete();
+                        paint_window = new cv.Mat(video.height, video.width, cv.CV_8UC4, [117,158,223,255]);
                     }
                     // case connected points
                     else if(mode == 'hold' || mode =='toggle')
@@ -315,7 +315,7 @@ function openCvReady() {
           }
   
       //----------------------------------------------------------- Drawing
-          console.log('POINTS : ',points);
+        //   console.log('POINTS : ',points);
           // Draw the connected points
           for(var i=1;i<points.length;i++)
           {
@@ -399,6 +399,7 @@ function exit_now()
     document.querySelector("#share").style.display="block";
     document.querySelector("#stroke").style.display="block"; 
     document.querySelector("#virtual").style.display="block";
+    document.querySelector(".btn-render").style.display="block";
     // document.querySelector("p").style.display="none"; 
     document.querySelector("#Exit_Button").style.display="none"; 
     document.querySelector("#Modes").style.display="none";  
@@ -571,7 +572,6 @@ function trash(){
 	var myHeaders = new Headers();
 
 	myHeaders.append("Authorization", `Bearer ${token[1]}`);
-	console.log("222222222222222222");
 	console.log(token[1]);
 	var requestOptions = {
 		method: 'POST',
@@ -606,3 +606,9 @@ function trash(){
 }
 
 
+// window.onload=function(){
+//     var jsonResponse='[[[5,1],[0,1]],[[0,1],[0,1]],[[0,1],[0,1]]]';
+//     var test=JSON.parse(jsonResponse);
+//     console.log(test);
+//     console.log(test[0][0][0]);
+//     }
